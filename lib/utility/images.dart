@@ -4,4 +4,5 @@ class Images {
   static const String ok = "assets/images/ok.png";
   static const String screw = "assets/images/pana.png";
   static const String support = "assets/images/support.png";
+  static const String banner = "assets/images/banner.png";
 }
