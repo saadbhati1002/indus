@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parveej_bank/screen/login/pin/pin_screen.dart';
 import 'package:parveej_bank/utility/colorconst.dart';
 import 'package:parveej_bank/utility/images.dart';
 
@@ -212,23 +213,33 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * .027,
                         ),
-                        Container(
-                          height: 45,
-                          width: MediaQuery.of(context).size.width * .65,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: ColorConstant.mainColor,
-                            border: Border.all(
-                                width: 1, color: ColorConstant.mainColor),
-                          ),
-                          alignment: Alignment.center,
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(
-                                letterSpacing: 1,
-                                fontSize: 12,
-                                color: ColorConstant.whiteColor,
-                                fontWeight: FontWeight.bold),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PinScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 45,
+                            width: MediaQuery.of(context).size.width * .65,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: ColorConstant.mainColor,
+                              border: Border.all(
+                                  width: 1, color: ColorConstant.mainColor),
+                            ),
+                            alignment: Alignment.center,
+                            child: const Text(
+                              "Login",
+                              style: TextStyle(
+                                  letterSpacing: 1,
+                                  fontSize: 12,
+                                  color: ColorConstant.whiteColor,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ],

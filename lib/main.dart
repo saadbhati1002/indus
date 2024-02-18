@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:parveej_bank/screen/login/login_screen.dart';
-import 'package:parveej_bank/screen/transaction_history.dart';
 
 void main() {
   runApp(const MyApp());

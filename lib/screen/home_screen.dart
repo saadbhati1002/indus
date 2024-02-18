@@ -106,12 +106,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 40,
                                 color: Colors.white,
                               ),
-                              const VerticalDivider(
-                                width: 30,
-                                thickness: 1,
-                                indent: 10,
-                                endIndent: 10,
-                                color: Colors.white,
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height * .1,
+                                width: 1,
+                                color: ColorConstant.whiteColor,
+                              ),
+                              const SizedBox(
+                                width: 10,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // height: MediaQuery.of(context).size.height * .20,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: ColorConstant.mainColor),
                       borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(12),
                           bottomRight: Radius.circular(12)),
@@ -164,16 +168,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "assets/images/statement.png",
-                          // height: 25,
-                        ),
-                        const Text(
-                          " Statement",
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: ColorConstant.mainColor,
-                              fontWeight: FontWeight.w500),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              "assets/images/statement.png",
+                              // height: 25,
+                            ),
+                            const Text(
+                              " Statement",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: ColorConstant.mainColor,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
                         ),
                         const VerticalDivider(
                           width: 80,
@@ -184,7 +194,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Image.asset(
                           "assets/images/account.png",
-                          // height: 25,
                         ),
                         const Text(
                           " Account Details",
