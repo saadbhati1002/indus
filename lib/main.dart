@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'INDUS bank',
+      title: 'IndusMobile',
       theme: ThemeData(fontFamily: "arial"),
       home: const SplashScreen(),
     );
