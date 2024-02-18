@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:parveej_bank/screen/login/login_screen.dart';
 import 'package:parveej_bank/screen/transaction_history.dart';
 import 'package:parveej_bank/utility/images.dart';
-import '../utility/colorconst.dart';
+import '../utility/color_const.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isLoading = false;
+  onNavigation() {
+    Future.delayed(const Duration(seconds: 4)).then((value) {
+      setState(() {
+        isLoading = false;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const TransactionHistoryScreen(),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -201,13 +216,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const TransactionHistoryScreen(),
-                                ),
-                              );
+                              setState(() {
+                                isLoading = true;
+                              });
+                              onNavigation();
                             },
                             child: SizedBox(
                               width: MediaQuery.of(context).size.width * .42,
@@ -530,6 +542,22 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          isLoading == true
+              ? SizedBox(
+                  height: MediaQuery.of(context).size.height * 1,
+                  width: MediaQuery.of(context).size.width * 1,
+                  child: const Center(
+                    child: SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: CircularProgressIndicator(
+                        color: ColorConstant.mainColor,
+                        strokeWidth: 3.5,
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );
