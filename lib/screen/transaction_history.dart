@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../utility/colorconst.dart';
 
-class TransactionistoryScreen extends StatefulWidget {
-  const TransactionistoryScreen({super.key});
+class TransactionHistoryScreen extends StatefulWidget {
+  const TransactionHistoryScreen({super.key});
 
   @override
-  State<TransactionistoryScreen> createState() =>
-      _TransactionistoryScreenState();
+  State<TransactionHistoryScreen> createState() =>
+      _TransactionHistoryScreenState();
 }
 
-class _TransactionistoryScreenState extends State<TransactionistoryScreen> {
+class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
