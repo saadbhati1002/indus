@@ -74,168 +74,202 @@ class _HomeScreenState extends State<HomeScreen> {
           ]),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width,
-                  // height: MediaQuery.of(context).size.height * .20,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12)),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "|  OWN",
-                        style: TextStyle(
-                            fontSize: 16, color: ColorConstant.fontColorDark),
-                      ),
-                      VerticalDivider(
-                        width: 150,
-                        thickness: 1,
-                        indent: 14,
-                        endIndent: 14,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "|  OWE",
-                        style: TextStyle(
-                            fontSize: 16, color: ColorConstant.fontColorDark),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Container(
-                    // width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * .15,
-                    decoration: BoxDecoration(
-                      color: ColorConstant.mainColor,
-                      border: Border.all(
-                        color: ColorConstant.mainColor,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 8),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                "assets/images/wallet white.png",
-                                height: 40,
-                                color: Colors.white,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                height:
-                                    MediaQuery.of(context).size.height * .11,
-                                width: 1,
-                                color: ColorConstant.whiteColor,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "Current Account (259610521514)",
-                                    style: TextStyle(
-                                        letterSpacing: 1,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    height: 7,
-                                  ),
-                                  Text(
-                                    "259610521514",
-                                    style: TextStyle(
-                                        letterSpacing: 1,
-                                        fontSize: 16,
-                                        color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "₹ 6,213.15",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        letterSpacing: 1,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Container(
-                    height: 50,
-                    // width: MediaQuery.of(context).size.width,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 1,
+            child: SingleChildScrollView(
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
                     // height: MediaQuery.of(context).size.height * .20,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: ColorConstant.mainColor),
+                      border: Border.all(color: Colors.grey),
                       borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(12),
                           bottomRight: Radius.circular(12)),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          "|  OWN",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorConstant.fontColorDark),
+                        ),
+                        VerticalDivider(
+                          width: 150,
+                          thickness: 1,
+                          indent: 14,
+                          endIndent: 14,
+                          color: Colors.grey,
+                        ),
+                        Text(
+                          "|  OWE",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorConstant.fontColorDark),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      // width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * .15,
+                      decoration: BoxDecoration(
+                        color: ColorConstant.mainColor,
+                        border: Border.all(
+                          color: ColorConstant.mainColor,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10)),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              onNavigation();
-                            },
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * .42,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 8),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/wallet white.png",
+                                  height: 40,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * .11,
+                                  width: 1,
+                                  color: ColorConstant.whiteColor,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "Current Account (259610521514)",
+                                      style: TextStyle(
+                                          letterSpacing: 1,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                    ),
+                                    SizedBox(
+                                      height: 7,
+                                    ),
+                                    Text(
+                                      "259610521514",
+                                      style: TextStyle(
+                                          letterSpacing: 1,
+                                          fontSize: 16,
+                                          color: Colors.white),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "₹ 6,213.15",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          letterSpacing: 1,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      height: 50,
+                      // width: MediaQuery.of(context).size.width,
+                      // height: MediaQuery.of(context).size.height * .20,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: ColorConstant.mainColor),
+                        borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isLoading = true;
+                                });
+                                onNavigation();
+                              },
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width * .42,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(
+                                      Icons.receipt_long_rounded,
+                                      color: ColorConstant.mainColor,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      " Statement",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: ColorConstant.mainColor,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 36,
+                              width: 2,
+                              color: ColorConstant.lightGrey2,
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * .35,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: const [
-                                  Icon(
-                                    Icons.receipt_long_rounded,
+                                  FaIcon(
+                                    FontAwesomeIcons.user,
+                                    size: 22,
                                     color: ColorConstant.mainColor,
                                   ),
                                   SizedBox(
                                     width: 5,
                                   ),
                                   Text(
-                                    " Statement",
+                                    " Account Details",
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: ColorConstant.mainColor,
@@ -244,163 +278,133 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             ),
-                          ),
-                          Container(
-                            height: 36,
-                            width: 2,
-                            color: ColorConstant.lightGrey2,
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * .35,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: const [
-                                FaIcon(
-                                  FontAwesomeIcons.user,
-                                  size: 22,
-                                  color: ColorConstant.mainColor,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  " Account Details",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: ColorConstant.mainColor,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * .38,
-                      height: 1,
-                      color: ColorConstant.mainColor.withOpacity(0.6),
-                    ),
-                    const Text(
-                      "  Quick Links  ",
-                      style: TextStyle(
-                          letterSpacing: 1,
-                          fontSize: 12,
-                          color: ColorConstant.mainColor,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * .38,
-                      color: ColorConstant.mainColor.withOpacity(0.6),
-                      height: 1,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      overView("fund transfer", "assets/images/money.png"),
                       Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
+                        width: MediaQuery.of(context).size.width * .38,
+                        height: 1,
+                        color: ColorConstant.mainColor.withOpacity(0.6),
                       ),
-                      overView("BHIM UPI", "assets/images/bhim.png"),
+                      const Text(
+                        "  Quick Links  ",
+                        style: TextStyle(
+                            letterSpacing: 1,
+                            fontSize: 12,
+                            color: ColorConstant.mainColor,
+                            fontWeight: FontWeight.w600),
+                      ),
                       Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
+                        width: MediaQuery.of(context).size.width * .38,
+                        color: ColorConstant.mainColor.withOpacity(0.6),
+                        height: 1,
                       ),
-                      overView("Bill Payment", "assets/images/bill.png"),
-                      Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
-                      ),
-                      overView("Recharge", "assets/images/rechagrge.png"),
                     ],
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 15),
-                  height: 1,
-                  width: MediaQuery.of(context).size.width * 1,
-                  color: ColorConstant.lightGrey2,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      overView("Deposit", "assets/images/deposit.png"),
-                      Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        overView("fund transfer", "assets/images/money.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("BHIM UPI", "assets/images/bhim.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("Bill Payment", "assets/images/bill.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("Recharge", "assets/images/rechagrge.png"),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    height: 1,
+                    width: MediaQuery.of(context).size.width * 1,
+                    color: ColorConstant.lightGrey2,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        overView("Deposit", "assets/images/deposit.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("Cards", "assets/images/carp.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("Personal Loan", "assets/images/loan.png"),
+                        Container(
+                          height: 90,
+                          width: 1,
+                          color: ColorConstant.lightGrey2,
+                        ),
+                        overView("Investments", "assets/images/inve.png"),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    child: Image.asset(
+                      "assets/images/cardplatinum.png",
+                      // height: 25,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.circle_sharp,
+                        color: ColorConstant.mainColor,
+                        size: 15,
                       ),
-                      overView("Cards", "assets/images/carp.png"),
-                      Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
+                      Icon(
+                        Icons.circle_sharp,
+                        color: ColorConstant.lightGrey,
+                        size: 15,
                       ),
-                      overView("Personal Loan", "assets/images/loan.png"),
-                      Container(
-                        height: 90,
-                        width: 1,
-                        color: ColorConstant.lightGrey2,
+                      Icon(
+                        Icons.circle_sharp,
+                        color: ColorConstant.lightGrey,
+                        size: 15,
                       ),
-                      overView("Investments", "assets/images/inve.png"),
                     ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                  child: Image.asset(
-                    "assets/images/cardplatinum.png",
-                    // height: 25,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      Icons.circle_sharp,
-                      color: ColorConstant.mainColor,
-                      size: 15,
-                    ),
-                    Icon(
-                      Icons.circle_sharp,
-                      color: ColorConstant.lightGrey,
-                      size: 15,
-                    ),
-                    Icon(
-                      Icons.circle_sharp,
-                      color: ColorConstant.lightGrey,
-                      size: 15,
-                    ),
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Positioned(
