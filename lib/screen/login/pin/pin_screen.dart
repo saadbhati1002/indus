@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parveej_bank/screen/home_screen.dart';
-import 'package:parveej_bank/utility/colorconst.dart';
+import 'package:parveej_bank/utility/color_const.dart';
 import 'package:parveej_bank/utility/images.dart';
 import 'package:flutter/foundation.dart';
 
@@ -14,6 +14,7 @@ class PinScreen extends StatefulWidget {
 }
 
 class _PinScreenState extends State<PinScreen> {
+  bool isLoading = false;
   @override
   void initState() {
     Future.delayed(const Duration(microseconds: 5000)).then((value) {
@@ -22,27 +23,18 @@ class _PinScreenState extends State<PinScreen> {
     super.initState();
   }
 
-  _getPin() {
-    showDialog<void>(
-      context: context,
-      builder: (context) => ScreenLock(
-        correctString: '1234',
-        secretsBuilder: (
-          context,
-          config,
-          length,
-          input,
-          verifyStream,
-        ) =>
-            SecretsWithCustomAnimation(
-          verifyStream: verifyStream,
-          config: config,
-          input: input,
-          length: length,
+  onNavigation() {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      setState(() {
+        isLoading = false;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
         ),
-        onUnlocked: Navigator.of(context).pop,
-      ),
-    );
+      );
+    });
   }
 
   @override
@@ -58,10 +50,10 @@ class _PinScreenState extends State<PinScreen> {
               size: 17,
             ),
             const SizedBox(
-              width: 10,
+              width: 15,
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * .4,
+              width: MediaQuery.of(context).size.width * .3,
               child: Image.asset(Images.logo),
             ),
           ],
@@ -82,9 +74,9 @@ class _PinScreenState extends State<PinScreen> {
                     decoration: BoxDecoration(
                       // color: Colors.blueGrey.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(
-                        image: AssetImage(Images.bg),
-                      ),
+                      // image: const DecorationImage(
+                      //   image: AssetImage(Images.bg),
+                      // ),
                     ),
                     height: MediaQuery.of(context).size.height * .64,
                     width: MediaQuery.of(context).size.width,
@@ -92,7 +84,20 @@ class _PinScreenState extends State<PinScreen> {
                       borderRadius: BorderRadius.circular(10),
                       child: ScreenLock(
                           useBlur: false,
-                          correctString: '1234',
+                          secretsConfig: const SecretsConfig(
+                            secretConfig: SecretConfig(
+                                enabledColor: ColorConstant.mainColor,
+                                disabledColor: ColorConstant.darkGrey),
+                          ),
+                          config: ScreenLockConfig(
+                              titleTextStyle: const TextStyle(
+                                  fontSize: 16, color: ColorConstant.darkGrey),
+                              themeData: ThemeData.dark(useMaterial3: true),
+                              buttonStyle: const ButtonStyle(),
+                              textStyle: const TextStyle(
+                                  color: ColorConstant.mainColor),
+                              backgroundColor: Colors.transparent),
+                          correctString: '4580',
                           secretsBuilder: (
                             context,
                             config,
@@ -107,12 +112,10 @@ class _PinScreenState extends State<PinScreen> {
                                 length: length,
                               ),
                           onUnlocked: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
-                              ),
-                            );
+                            setState(() {
+                              isLoading = true;
+                              onNavigation();
+                            });
                           }),
                     ),
                   ),
@@ -129,7 +132,7 @@ class _PinScreenState extends State<PinScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.blueGrey.withOpacity(0.7),
+                color: ColorConstant.lightGrey2,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -158,6 +161,22 @@ class _PinScreenState extends State<PinScreen> {
               ),
             ),
           ),
+          isLoading == true
+              ? SizedBox(
+                  height: MediaQuery.of(context).size.height * 1,
+                  width: MediaQuery.of(context).size.width * 1,
+                  child: const Center(
+                    child: SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: CircularProgressIndicator(
+                        color: ColorConstant.mainColor,
+                        strokeWidth: 3.5,
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );

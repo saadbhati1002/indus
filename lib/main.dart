@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parveej_bank/screen/login/login_screen.dart';
+
+import 'package:parveej_bank/screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'INDUS bank',
+      title: 'IndusMobile',
       theme: ThemeData(fontFamily: "arial"),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }

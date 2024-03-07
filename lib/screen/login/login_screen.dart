@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parveej_bank/screen/login/pin/pin_screen.dart';
-import 'package:parveej_bank/utility/colorconst.dart';
+import 'package:parveej_bank/utility/color_const.dart';
 import 'package:parveej_bank/utility/images.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,11 +11,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isLoading = false;
   int currentIndex = 0;
 
   setBottomBarIndex(index) {
     setState(() {
       currentIndex = index;
+    });
+  }
+
+  onNavigation() {
+    Future.delayed(const Duration(seconds: 2)).then((value) {
+      setState(() {
+        isLoading = false;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PinScreen(),
+        ),
+      );
     });
   }
 
@@ -171,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 10,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * .26,
+                    height: MediaQuery.of(context).size.height * .23,
                     width: MediaQuery.of(context).size.width,
                     color: ColorConstant.backGroundColor.withOpacity(0.7),
                     child: Column(
@@ -190,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * .027,
+                          height: MediaQuery.of(context).size.height * .02,
                         ),
                         Container(
                           height: 45,
@@ -211,16 +226,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * .027,
+                          height: MediaQuery.of(context).size.height * .02,
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PinScreen(),
-                              ),
-                            );
+                            setState(() {
+                              isLoading = true;
+                            });
+                            onNavigation();
                           },
                           child: Container(
                             height: 45,
@@ -459,6 +472,22 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          isLoading == true
+              ? SizedBox(
+                  height: MediaQuery.of(context).size.height * 1,
+                  width: MediaQuery.of(context).size.width * 1,
+                  child: const Center(
+                    child: SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: CircularProgressIndicator(
+                        color: ColorConstant.mainColor,
+                        strokeWidth: 3.5,
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );
