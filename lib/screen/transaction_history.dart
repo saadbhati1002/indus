@@ -213,7 +213,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
                                         width: 18,
                                       ),
                                       const Text(
-                                        "₹ 6,213.15",
+                                        "₹ 200.89",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             wordSpacing: 0.3,

@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 5,
             ),
             const Text(
-              "Last Login 17-February-24, 06:58 pm",
+              "Last Login 07-March-24, 11:40 am",
               style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

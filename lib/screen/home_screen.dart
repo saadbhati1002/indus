@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       height: 20,
                                     ),
                                     Text(
-                                      "₹ 6,213.15",
+                                      "₹ 200.89",
                                       style: TextStyle(
                                           fontSize: 20,
                                           letterSpacing: 1,

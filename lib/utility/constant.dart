@@ -1,5 +1,6 @@
 class Constant {
   static List dateList = [
+    "2024-02-25",
     "2023-12-16",
     '2023-11-10',
     '2023-09-25',
@@ -26,6 +27,7 @@ class Constant {
     '2023-09-20',
   ];
   static List inComingEnter = [
+    true,
     false,
     true,
     false,
@@ -52,7 +54,8 @@ class Constant {
     true
   ];
   static List rupeeList = [
-    "24,807",
+    "1.16,125.00",
+    "24,807.00",
     "1,26,029.00",
     "1,26,029.00",
     "1.00",
@@ -78,6 +81,7 @@ class Constant {
     "13,400.00"
   ];
   static List paymentTo = [
+    "IMPS Reverse/P2A/328547545344/PUNB/C",
     "UPI/319703646361/CR/MEET/MSNU/KkManoj/sikka44@paytm",
     "IMPS Reverse/P2A/324156475512/PUNB/CCCCC",
     " IMPS/P2A/326816205606/PUNB/CCCCC",

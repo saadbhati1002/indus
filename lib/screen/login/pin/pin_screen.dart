@@ -150,7 +150,7 @@ class _PinScreenState extends State<PinScreen> {
                     height: 15,
                   ),
                   Text(
-                    "Last Login 17-February-24, 06:58 pm",
+                    "Last Login 07-March-24, 11:40 am",
                     style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w500,
